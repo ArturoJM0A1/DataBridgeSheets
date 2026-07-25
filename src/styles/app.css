@@ -673,3 +673,137 @@ body::before{
 .app-footer a i{
   font-size:0.65rem;
 }
+
+/* ── Welcome screen ── */
+.welcome-screen{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:80vh;
+  text-align:center;
+}
+
+.welcome-content{
+  max-width:500px;
+  padding:40px;
+}
+
+.welcome-logo{
+  font-size:3.5rem;
+  color:var(--accent);
+  margin-bottom:20px;
+  opacity:0.9;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+.welcome-content h1{
+  font-family:var(--font-mono);
+  font-size:2.2rem;
+  font-weight:700;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-emerald) 50%,var(--accent-cyan) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:12px;
+}
+
+.welcome-subtitle{
+  font-size:0.95rem;
+  color:var(--text-secondary);
+  margin-bottom:32px;
+  line-height:1.6;
+}
+
+.welcome-btn{
+  padding:12px 36px;
+  font-size:0.9rem;
+}
+
+/* ── Welcome instructions ── */
+.welcome-instructions{
+  padding:20px 0;
+}
+
+.welcome-instructions-content{
+  max-width:600px;
+  margin:0 auto;
+}
+
+.welcome-instructions-content h2{
+  font-family:var(--font-mono);
+  font-size:1.2rem;
+  color:var(--accent);
+  margin-bottom:24px;
+  text-align:center;
+}
+
+.steps{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  margin-bottom:28px;
+}
+
+.step{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  padding:16px;
+  background:var(--bg-card);
+  border:1px solid var(--border-subtle);
+  border-radius:var(--radius);
+  transition:border-color var(--transition);
+}
+
+.step:hover{
+  border-color:var(--border-accent);
+}
+
+.step-number{
+  flex-shrink:0;
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--accent-dim);
+  border:1px solid var(--border-accent);
+  border-radius:50%;
+  font-family:var(--font-mono);
+  font-size:0.85rem;
+  font-weight:700;
+  color:var(--accent);
+}
+
+.step-text h3{
+  font-family:var(--font-mono);
+  font-size:0.85rem;
+  color:var(--text-primary);
+  margin-bottom:4px;
+}
+
+.step-text p{
+  font-size:0.8rem;
+  color:var(--text-secondary);
+  line-height:1.5;
+}
+
+.welcome-start-btn{
+  display:block;
+  margin:0 auto;
+  padding:12px 36px;
+  font-size:0.9rem;
+}
+
+@media(max-width:600px){
+  .welcome-content h1{font-size:1.6rem}
+  .welcome-subtitle{font-size:0.85rem}
+  .welcome-content{padding:24px 16px}
+  .welcome-logo{font-size:2.8rem}
+  .step{padding:12px}
+}

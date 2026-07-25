@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import useConverter from './hooks/useConverter';
 import ErrorToast from './components/ErrorToast';
+import WelcomeScreen from './components/WelcomeScreen';
 import FileUpload from './components/FileUpload';
 import StatsPanel from './components/StatsPanel';
 import ActionsPanel from './components/ActionsPanel';
@@ -38,6 +39,7 @@ export default function App() {
   const [useDropTable, setUseDropTable] = useState(true);
   const [fileName, setFileName] = useState('resultado.sql');
   const [errorToast, setErrorToast] = useState({ visible: false, title: '', message: '' });
+  const [showWelcome, setShowWelcome] = useState(true);
 
   /* Valores derivados (derived state): se calculan en cada render
      a partir del estado existente, sin necesidad de useState. */
@@ -115,11 +117,7 @@ export default function App() {
 
       <Console logs={logs} visible={showConsole} />
 
-      <footer className="app-footer">
-        <a href="https://arturojuarezmonroy.vercel.app/" target="_blank" rel="noopener noreferrer">
-          <i className="fa-solid fa-user"></i> Portafolio
-        </a>
-      </footer>
+
     </div>
   );
 }
