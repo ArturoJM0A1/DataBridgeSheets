@@ -80,44 +80,48 @@ export default function App() {
         onClose={closeErrorToast}
       />
 
-      <div className="app-header">
-        <h1>Excel a MySQL</h1>
-        <p>Convierte archivos Excel a script SQL compatible con MySQL</p>
-      </div>
+      {showWelcome ? (
+        <WelcomeScreen onContinue={() => setShowWelcome(false)} />
+      ) : (
+        <>
+          <div className="app-header">
+            <h1>Excel a MySQL</h1>
+            <p>Convierte archivos Excel a script SQL compatible con MySQL</p>
+          </div>
 
-      {/* Flujo de props descendentes: App pasa datos del hook a los hijos
-          y los hijos notifican cambios mediante callbacks. */}
-      <FileUpload
-        files={files}
-        onAddFiles={addFiles}
-        onRemoveFile={removeFile}
-      />
+          {/* Flujo de props descendentes: App pasa datos del hook a los hijos
+              y los hijos notifican cambios mediante callbacks. */}
+          <FileUpload
+            files={files}
+            onAddFiles={addFiles}
+            onRemoveFile={removeFile}
+          />
 
-      <StatsPanel
-        files={files}
-        totalSheets={totalSheets}
-        tables={tables}
-        totalRows={totalRows}
-      />
+          <StatsPanel
+            files={files}
+            totalSheets={totalSheets}
+            tables={tables}
+            totalRows={totalRows}
+          />
 
-      <ActionsPanel
-        isConverting={isConverting}
-        hasSql={hasSql}
-        useTransaction={useTransaction}
-        setUseTransaction={setUseTransaction}
-        useDropTable={useDropTable}
-        setUseDropTable={setUseDropTable}
-        fileName={fileName}
-        setFileName={setFileName}
-        onConvert={handleConvert}
-        onDownload={handleDownload}
-      />
+          <ActionsPanel
+            isConverting={isConverting}
+            hasSql={hasSql}
+            useTransaction={useTransaction}
+            setUseTransaction={setUseTransaction}
+            useDropTable={useDropTable}
+            setUseDropTable={setUseDropTable}
+            fileName={fileName}
+            setFileName={setFileName}
+            onConvert={handleConvert}
+            onDownload={handleDownload}
+          />
 
-      <ProgressBar progress={progress} visible={isConverting || progress.percent > 0} />
+          <ProgressBar progress={progress} visible={isConverting || progress.percent > 0} />
 
-      <Console logs={logs} visible={showConsole} />
-
-
+          <Console logs={logs} visible={showConsole} />
+        </>
+      )}
     </div>
   );
 }
