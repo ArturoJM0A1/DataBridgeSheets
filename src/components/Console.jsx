@@ -12,7 +12,7 @@ const TYPE_CLASS = {
    useRef (bottomRef) crea una referencia al final de la lista.
    useEffect se ejecuta cada vez que logs cambia y hace scroll
    automático al último mensaje mediante scrollIntoView. */
-export default function Console({ logs, visible }) {
+export default function Console({ logs, visible, onClear }) {
   const bottomRef = useRef(null);
 
   useEffect(() => {
@@ -25,7 +25,12 @@ export default function Console({ logs, visible }) {
 
   return (
     <div className="card">
-      <div className="card-title">Consola</div>
+      <div className="card-title">
+        Consola
+        <button className="console-clear-btn" onClick={onClear} title="Limpiar consola">
+          Limpiar
+        </button>
+      </div>
       <div className="console show">
         {logs.length === 0 && (
           <div className="entry entry-info">

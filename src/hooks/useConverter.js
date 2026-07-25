@@ -57,6 +57,10 @@ export default function useConverter() {
     setLogs(prev => [...prev, entry]);
   }, []);
 
+  const clearLogs = useCallback(() => {
+    setLogs([]);
+  }, []);
+
   /* addFiles filtra los archivos agregados: solo acepta .xlsx/.xls
      y evita duplicados comparando nombre y tamaño. */
   const addFiles = useCallback((newFiles) => {
@@ -227,7 +231,7 @@ export default function useConverter() {
     files, addFiles, removeFile,
     tables, totalSheets, totalRows,
     sqlOutput, isConverting, progress, logs,
-    convert, downloadSQL,
+    convert, downloadSQL, clearLogs,
   };
 }
 

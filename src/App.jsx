@@ -28,7 +28,7 @@ export default function App() {
     files, addFiles, removeFile,
     tables, totalSheets, totalRows,
     sqlOutput, isConverting, progress, logs,
-    convert, downloadSQL,
+    convert, downloadSQL, clearLogs,
   } = useConverter();
 
   /* Estado local de opciones de configuración.
@@ -119,7 +119,7 @@ export default function App() {
 
           <ProgressBar progress={progress} visible={isConverting || progress.percent > 0} />
 
-          <Console logs={logs} visible={showConsole} />
+          <Console logs={logs} visible={showConsole} onClear={clearLogs} />
         </>
       )}
     </div>
