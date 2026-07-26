@@ -51,38 +51,6 @@ body::before{
 }
 
 /* ── Matrix rain background ── */
-.matrix-bg{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  overflow:hidden;
-  opacity:0.04;
-}
-
-@keyframes matrixFall{
-  0%{transform:translateY(-100%)}
-  100%{transform:translateY(100vh)}
-}
-
-.matrix-col{
-  position:absolute;
-  top:0;
-  font-family:var(--font-mono);
-  font-size:11px;
-  line-height:1.3;
-  color:var(--accent);
-  writing-mode:vertical-lr;
-  text-orientation:upright;
-  animation:matrixFall linear infinite;
-  animation-delay:calc(var(--d) * 1s);
-  animation-duration:calc(8s + var(--r) * 4s);
-  left:calc(var(--x) * 1%);
-  height:200%;
-  letter-spacing:2px;
-  white-space:nowrap;
-}
-
 /* ── Scrollbar ── */
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
