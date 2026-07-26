@@ -279,6 +279,7 @@ body::before{
 }
 
 .upload-text{
+  display:block;
   font-size:1rem;
   color:var(--text-primary);
   font-weight:500;
