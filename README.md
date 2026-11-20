@@ -1,4 +1,4 @@
-# Excel a MySQL - Convertidor
+# DataBridgeSheets 
 
 Aplicación web que convierte archivos Microsoft Excel (`.xlsx` y `.xls`) en un script SQL compatible con MySQL. Todo el procesamiento ocurre del lado del cliente, sin necesidad de servidor ni backend.
 
